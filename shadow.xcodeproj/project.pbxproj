@@ -19,6 +19,8 @@
 		9CEC282618EAEB08008ED984 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEC280E18EAEB08008ED984 /* UIKit.framework */; };
 		9CEC282E18EAEB08008ED984 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CEC282C18EAEB08008ED984 /* InfoPlist.strings */; };
 		9CEC283018EAEB08008ED984 /* shadowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEC282F18EAEB08008ED984 /* shadowTests.m */; };
+		9CEC283B18EAEB4A008ED984 /* ShadowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEC283A18EAEB4A008ED984 /* ShadowViewController.m */; };
+		9CEC283D18EAEE33008ED984 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEC283C18EAEE33008ED984 /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,9 @@
 		9CEC282B18EAEB08008ED984 /* shadowTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "shadowTests-Info.plist"; sourceTree = "<group>"; };
 		9CEC282D18EAEB08008ED984 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9CEC282F18EAEB08008ED984 /* shadowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = shadowTests.m; sourceTree = "<group>"; };
+		9CEC283918EAEB4A008ED984 /* ShadowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowViewController.h; sourceTree = "<group>"; };
+		9CEC283A18EAEB4A008ED984 /* ShadowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowViewController.m; sourceTree = "<group>"; };
+		9CEC283C18EAEE33008ED984 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CEC283D18EAEE33008ED984 /* CoreMotion.framework in Frameworks */,
 				9CEC280D18EAEB08008ED984 /* CoreGraphics.framework in Frameworks */,
 				9CEC280F18EAEB08008ED984 /* UIKit.framework in Frameworks */,
 				9CEC280B18EAEB08008ED984 /* Foundation.framework in Frameworks */,
@@ -96,6 +102,7 @@
 		9CEC280918EAEB08008ED984 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9CEC283C18EAEE33008ED984 /* CoreMotion.framework */,
 				9CEC280A18EAEB08008ED984 /* Foundation.framework */,
 				9CEC280C18EAEB08008ED984 /* CoreGraphics.framework */,
 				9CEC280E18EAEB08008ED984 /* UIKit.framework */,
@@ -109,6 +116,8 @@
 			children = (
 				9CEC281918EAEB08008ED984 /* AppDelegate.h */,
 				9CEC281A18EAEB08008ED984 /* AppDelegate.m */,
+				9CEC283918EAEB4A008ED984 /* ShadowViewController.h */,
+				9CEC283A18EAEB4A008ED984 /* ShadowViewController.m */,
 				9CEC281C18EAEB08008ED984 /* Images.xcassets */,
 				9CEC281118EAEB08008ED984 /* Supporting Files */,
 			);
@@ -239,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CEC283B18EAEB4A008ED984 /* ShadowViewController.m in Sources */,
 				9CEC281B18EAEB08008ED984 /* AppDelegate.m in Sources */,
 				9CEC281718EAEB08008ED984 /* main.m in Sources */,
 			);
