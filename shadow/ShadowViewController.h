@@ -8,6 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
+#define ERROR_DOMAIN @"com.kongfy.shadow"
+typedef enum
+{
+    MotionError = -100,
+    CameraError,
+    
+} ShadowErrorCode;
+
+@protocol ShadowVCDelegate <NSObject>
+
+@required
+
+- (void)errorHandle:(NSError *)error;
+
+@optional
+
+@end
+
 @interface ShadowViewController : UIViewController
+
+@property (weak, nonatomic) id <ShadowVCDelegate> delegate;
+
+@property (strong, nonatomic) NSArray *objects;
 
 @end

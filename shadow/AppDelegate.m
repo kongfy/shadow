@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "ShadowViewController.h"
+#import "ShadowObject.h"
 
 @implementation AppDelegate
 
@@ -17,9 +18,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    UIViewController *rootVC = [[ShadowViewController alloc] init];
-    self.window.rootViewController = rootVC;
+    ShadowObject *object = [[ShadowObject alloc] init];
+    ShadowViewController *rootVC = [[ShadowViewController alloc] init];
+    rootVC.objects = [NSArray arrayWithObjects:object, nil];
     
+    self.window.rootViewController = rootVC;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
