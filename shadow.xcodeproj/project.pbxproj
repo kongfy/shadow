@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C6757BB18EDB82400F0A9DD /* shadowDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C6757BA18EDB82400F0A9DD /* shadowDefault.png */; };
+		9C51799A18F3C2C600B8AAC1 /* shadowDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C51799918F3C2C600B8AAC1 /* shadowDefault@2x.png */; };
 		9CA985AF18EDAF1D000E97A3 /* ShadowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA985AE18EDAF1D000E97A3 /* ShadowObject.m */; };
 		9CB8633718EAFEF800F47808 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB8633518EAFE5700F47808 /* MobileCoreServices.framework */; };
 		9CEC280B18EAEB08008ED984 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEC280A18EAEB08008ED984 /* Foundation.framework */; };
@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9C6757BA18EDB82400F0A9DD /* shadowDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadowDefault.png; sourceTree = "<group>"; };
+		9C51799918F3C2C600B8AAC1 /* shadowDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shadowDefault@2x.png"; sourceTree = "<group>"; };
 		9CA985AD18EDAF1D000E97A3 /* ShadowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowObject.h; sourceTree = "<group>"; };
 		9CA985AE18EDAF1D000E97A3 /* ShadowObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowObject.m; sourceTree = "<group>"; };
 		9CB8633518EAFE5700F47808 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -123,7 +123,7 @@
 				9CEC283A18EAEB4A008ED984 /* ShadowViewController.m */,
 				9CA985AD18EDAF1D000E97A3 /* ShadowObject.h */,
 				9CA985AE18EDAF1D000E97A3 /* ShadowObject.m */,
-				9C6757BA18EDB82400F0A9DD /* shadowDefault.png */,
+				9C51799918F3C2C600B8AAC1 /* shadowDefault@2x.png */,
 				9CEC281C18EAEB08008ED984 /* Images.xcassets */,
 				9CEC281118EAEB08008ED984 /* Supporting Files */,
 			);
@@ -218,7 +218,7 @@
 			files = (
 				9CEC281518EAEB08008ED984 /* InfoPlist.strings in Resources */,
 				9CEC281D18EAEB08008ED984 /* Images.xcassets in Resources */,
-				9C6757BB18EDB82400F0A9DD /* shadowDefault.png in Resources */,
+				9C51799A18F3C2C600B8AAC1 /* shadowDefault@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

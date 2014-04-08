@@ -67,6 +67,12 @@
         [weakSelf.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXTrueNorthZVertical toQueue:weakSelf.motionQueue withHandler:^(CMDeviceMotion *motion, NSError *error) {
             [weakSelf motionUpdates:motion withError:error];
         }];
+    } else {
+        if ([self.delegate respondsToSelector:@selector(errorHandle:)]) {
+            NSDictionary *userinfo = [NSDictionary dictionaryWithObject:@"DeviceMotionIsNotAvailable" forKey:NSLocalizedDescriptionKey];
+            NSError *error = [NSError errorWithDomain:ERROR_DOMAIN code:MotionError userInfo:userinfo];
+            [self.delegate errorHandle:error];
+        }
     }
 }
 
@@ -158,6 +164,9 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         for (ShadowObject *object in self.objects) {
             
+            ObjectVector vector = [object multiplyByRotationMatrix:currentAttitude.rotationMatrix];
+            NSLog(@"vector : %f %f %f %f", vector.x, vector.y, vector.z, vector.d);
+            
             //刷新UI
             dispatch_async(dispatch_get_main_queue(), ^{
                 CGPoint point = self.view.center;
@@ -167,8 +176,8 @@
             });
         }
     });
-
-    NSLog(@"motion : %f, %f, %f", CC_RADIANS_TO_DEGREES(currentAttitude.roll), CC_RADIANS_TO_DEGREES(currentAttitude.pitch), CC_RADIANS_TO_DEGREES(currentAttitude.yaw));
+    
+    // NSLog(@"motion : %f, %f, %f", CC_RADIANS_TO_DEGREES(currentAttitude.roll), CC_RADIANS_TO_DEGREES(currentAttitude.pitch), CC_RADIANS_TO_DEGREES(currentAttitude.yaw));
 }
 
 
