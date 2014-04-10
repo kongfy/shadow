@@ -10,17 +10,17 @@
 
 @implementation ShadowManager
 
-#define FOV_HORIZONAL_RADIANS 1.0716
-#define FOV_VERTICAL_RADIANS 0.8377
+#define FOV_Y_RADIANS 1.0716
+#define FOV_X_RADIANS 0.8377
 
-+ (double)FOVHorizonal
++ (double)FOVonX
 {
-    return FOV_HORIZONAL_RADIANS;
+    return FOV_X_RADIANS;
 }
 
-+ (double)FOVVertical
++ (double)FOVonY
 {
-    return FOV_VERTICAL_RADIANS;
+    return FOV_Y_RADIANS;
 }
 
 + (CGPoint)centerForObjectVector:(ObjectVector)vector inRect:(CGRect)rect
@@ -35,8 +35,8 @@
     
     CGPoint point = CGPointZero;
     double z = fabs(vector.z);
-    point.x = atan(vector.x / z) / ([self FOVHorizonal] / 2) * rect.size.width + center.x;
-    point.y = -(atan(vector.y / z) / ([self FOVVertical] / 2) * rect.size.height) + center.y;
+    point.x = atan(vector.x / z) / ([self FOVonX] / 2) * rect.size.width + center.x;
+    point.y = -(atan(vector.y / z) / ([self FOVonY] / 2) * rect.size.height) + center.y;
     
     return point;
 }
