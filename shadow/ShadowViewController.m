@@ -8,19 +8,10 @@
 
 #import "ShadowViewController.h"
 #import "ShadowObject.h"
+#import "ShadowManager.h"
 
 #import <CoreMotion/CoreMotion.h>
 #import <MobileCoreServices/MobileCoreServices.h>
-
-/** @def CC_DEGREES_TO_RADIANS
- converts degrees to radians
- */
-#define CC_DEGREES_TO_RADIANS(__ANGLE__) ((__ANGLE__) * 0.01745329252f) // PI / 180
-
-/** @def CC_RADIANS_TO_DEGREES
- converts radians to degrees
- */
-#define CC_RADIANS_TO_DEGREES(__ANGLE__) ((__ANGLE__) * 57.29577951f) // PI * 180
 
 @interface ShadowViewController ()
 
@@ -129,18 +120,21 @@
     
     UIImagePickerController *cameraController = [[UIImagePickerController alloc] init];
     cameraController.sourceType = UIImagePickerControllerSourceTypeCamera;
-    // 设置为录像模式以占满全屏幕
-    // cameraController.mediaTypes = [NSArray arrayWithObjects:(NSString *)kUTTypeMovie, nil];
+
     // 隐藏相机控制界面
     cameraController.showsCameraControls = NO;
     [self addChildViewController:cameraController];
     cameraController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    cameraController.view.frame = self.view.bounds;
+    CGRect frame = self.view.bounds;
+    // 维持相机长宽比
+    frame.size.height = 426.66f;
+    cameraController.view.frame = frame;
     [self.view addSubview:cameraController.view];
     [cameraController didMoveToParentViewController:self];
     self.cameraController = cameraController;
     
-    UIView *view = [[UIView alloc] initWithFrame:self.view.bounds];
+    UIView *view = [[UIView alloc] initWithFrame:self.cameraController.view.bounds];
+    view.clipsToBounds = YES;
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:view];
     self.mapView = view;
@@ -164,20 +158,25 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         for (ShadowObject *object in self.objects) {
             
+            // 转换座标系
             ObjectVector vector = [object multiplyByRotationMatrix:currentAttitude.rotationMatrix];
-            NSLog(@"vector : %f %f %f %f", vector.x, vector.y, vector.z, vector.d);
+            // NSLog(@"vector : %f %f %f %f", vector.x, vector.y, vector.z, vector.d);
             
-            //刷新UI
+            // 将向量转换为屏幕坐标
+            CGPoint center = [ShadowManager centerForObjectVector:vector inRect:self.cameraController.view.bounds];
+            
+            // 刷新UI
             dispatch_async(dispatch_get_main_queue(), ^{
-                CGPoint point = self.view.center;
-                point.x = CC_RADIANS_TO_DEGREES(currentAttitude.roll) / 180 * 160 + 160;
-                object.shadowView.center = point;
-                object.shadowView.alpha = 1.0f;
+                if (center.x < 0 && center.y < 0) {
+                    object.shadowView.alpha = 0.0f;
+                } else {
+                    object.shadowView.alpha = 1.0f;
+                }
+                object.shadowView.center = center;
             });
         }
     });
     
-    // NSLog(@"motion : %f, %f, %f", CC_RADIANS_TO_DEGREES(currentAttitude.roll), CC_RADIANS_TO_DEGREES(currentAttitude.pitch), CC_RADIANS_TO_DEGREES(currentAttitude.yaw));
 }
 
 

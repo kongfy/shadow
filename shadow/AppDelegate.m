@@ -18,9 +18,19 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    ShadowObject *object = [[ShadowObject alloc] initWithDistance:200.0 X:1.0 Y:0.0 Z:0.0];
+
     ShadowViewController *rootVC = [[ShadowViewController alloc] init];
-    rootVC.objects = [NSArray arrayWithObjects:object, nil];
+    
+    ShadowObject *object = nil;
+    NSMutableArray *objectsArray = [[NSMutableArray alloc] initWithCapacity:20];
+    object = [[ShadowObject alloc] initWithDistance:200.0 X:-1.0 Y:0.0 Z:0.0];
+    [objectsArray addObject:object];
+    object = [[ShadowObject alloc] initWithDistance:10.0 X:0.0 Y:0.0 Z:1.0];
+    [objectsArray addObject:object];
+    object = [[ShadowObject alloc] initWithDistance:1000.0 X:1.0 Y:1.0 Z:1.0];
+    [objectsArray addObject:object];
+    
+    rootVC.objects = objectsArray;
     
     self.window.rootViewController = rootVC;
     self.window.backgroundColor = [UIColor whiteColor];
