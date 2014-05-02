@@ -59,7 +59,7 @@
     // 以屏幕中心为原点的坐标
     CGPoint point = {position.x - width, position.y - height};
     
-    if (fabsf(point.x) > width) {
+    if (true) {
         float scale = width / fabsf(point.x);
         point.x *= scale;
         point.y *= scale;
