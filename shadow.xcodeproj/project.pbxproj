@@ -11,6 +11,7 @@
 		9C8FC16C18F6475C003E115A /* ShadowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8FC16B18F6475C003E115A /* ShadowManager.m */; };
 		9CA985AF18EDAF1D000E97A3 /* ShadowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA985AE18EDAF1D000E97A3 /* ShadowObject.m */; };
 		9CB8633718EAFEF800F47808 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CB8633518EAFE5700F47808 /* MobileCoreServices.framework */; };
+		9CBCC36F1913818B0012FC4F /* shadowArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCC36E1913818B0012FC4F /* shadowArrow@2x.png */; };
 		9CEC280B18EAEB08008ED984 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEC280A18EAEB08008ED984 /* Foundation.framework */; };
 		9CEC280D18EAEB08008ED984 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEC280C18EAEB08008ED984 /* CoreGraphics.framework */; };
 		9CEC280F18EAEB08008ED984 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEC280E18EAEB08008ED984 /* UIKit.framework */; };
@@ -42,6 +43,7 @@
 		9CA985AD18EDAF1D000E97A3 /* ShadowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowObject.h; sourceTree = "<group>"; };
 		9CA985AE18EDAF1D000E97A3 /* ShadowObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowObject.m; sourceTree = "<group>"; };
 		9CB8633518EAFE5700F47808 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		9CBCC36E1913818B0012FC4F /* shadowArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shadowArrow@2x.png"; sourceTree = "<group>"; };
 		9CEC280718EAEB08008ED984 /* shadow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shadow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CEC280A18EAEB08008ED984 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9CEC280C18EAEB08008ED984 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -129,6 +131,7 @@
 				9C8FC16A18F6475C003E115A /* ShadowManager.h */,
 				9C8FC16B18F6475C003E115A /* ShadowManager.m */,
 				9C51799918F3C2C600B8AAC1 /* shadowDefault@2x.png */,
+				9CBCC36E1913818B0012FC4F /* shadowArrow@2x.png */,
 				9CEC281C18EAEB08008ED984 /* Images.xcassets */,
 				9CEC281118EAEB08008ED984 /* Supporting Files */,
 			);
@@ -224,6 +227,7 @@
 				9CEC281518EAEB08008ED984 /* InfoPlist.strings in Resources */,
 				9CEC281D18EAEB08008ED984 /* Images.xcassets in Resources */,
 				9C51799A18F3C2C600B8AAC1 /* shadowDefault@2x.png in Resources */,
+				9CBCC36F1913818B0012FC4F /* shadowArrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

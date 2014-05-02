@@ -41,6 +41,14 @@
     return _shadowView;
 }
 
+- (UIView *)indicatorView
+{
+    if (!_indicatorView) {
+        _indicatorView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shadowArrow"]];
+    }
+    return _indicatorView;
+}
+
 // http://en.wikipedia.org/wiki/Rotation_matrix
 - (ObjectVector)multiplyByRotationMatrix:(CMRotationMatrix)rotationMatrix
 {

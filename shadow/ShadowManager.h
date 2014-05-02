@@ -12,6 +12,7 @@
 
 @interface ShadowManager : NSObject
 
-+ (CGPoint)centerForObjectVector:(ObjectVector)vector inRect:(CGRect)rect;
++ (CGPoint)centerForObjectVector:(ObjectVector)vector inRect:(CGRect)rect outBound:(BOOL *)outBound;
++ (CGPoint)centerForIndicator:(UIView *)indicator inRect:(CGRect)rect withPosition:(CGPoint)position transformAngle:(CGFloat *)angle;
 
 @end

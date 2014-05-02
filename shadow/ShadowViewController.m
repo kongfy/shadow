@@ -95,6 +95,7 @@
 {
     for (ShadowObject *object in _objects) {
         [object.shadowView removeFromSuperview];
+        [object.indicatorView removeFromSuperview];
     }
     _objects = objects;
 }
@@ -103,7 +104,9 @@
 {
     for (ShadowObject *object in self.objects) {
         [self.mapView addSubview:object.shadowView];
+        [self.mapView addSubview:object.indicatorView];
         object.shadowView.alpha = 0.0f;
+        object.indicatorView.alpha = 0.0f;
     }
 }
 
@@ -163,14 +166,24 @@
             // NSLog(@"vector : %f %f %f %f", vector.x, vector.y, vector.z, vector.d);
             
             // 将向量转换为屏幕坐标
-            CGPoint center = [ShadowManager centerForObjectVector:vector inRect:self.cameraController.view.bounds];
+            BOOL outBound;
+            CGPoint center = [ShadowManager centerForObjectVector:vector inRect:self.cameraController.view.bounds outBound:&outBound];
+            CGPoint indicator_center = CGPointZero;
+            CGFloat angle = 0.0f;
+            if (outBound) {
+                indicator_center = [ShadowManager centerForIndicator:object.indicatorView inRect:self.cameraController.view.bounds withPosition:center transformAngle:&angle];
+            }
             
             // 刷新UI
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (center.x < 0 && center.y < 0) {
+                if (outBound) {
                     object.shadowView.alpha = 0.0f;
+                    object.indicatorView.alpha = 1.0f;
+                    object.indicatorView.center = indicator_center;
+                    object.indicatorView.transform = CGAffineTransformMakeRotation(angle);
                 } else {
                     object.shadowView.alpha = 1.0f;
+                    object.indicatorView.alpha = 0.0f;
                 }
                 object.shadowView.center = center;
             });

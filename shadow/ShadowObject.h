@@ -19,7 +19,8 @@ typedef struct {
 @interface ShadowObject : NSObject
 
 @property (nonatomic) ObjectVector vector;
-@property (strong, nonatomic) UIView *shadowView;   // 图层
+@property (strong, nonatomic) UIView *shadowView;    // 图层
+@property (strong, nonatomic) UIView *indicatorView; // 指示标图层
 
 - (ObjectVector)multiplyByRotationMatrix:(CMRotationMatrix)rotationMatrix;
 
